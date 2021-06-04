@@ -1,38 +1,106 @@
-.App {
-  text-align: center;
+/* ===common css =====*/
+
+a {
+  text-decoration: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a.hover {
+  text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+ul {
+  margin-bottom: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+li {
+  list-style: none;
 }
 
-.App-link {
-  color: #61dafb;
+/* ===common css ends ==== */
+
+/* ======signup/signin ====== */
+
+.inner-signup {
+  display: grid;
+  place-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-signup {
+  width: 50%;
+  padding: 40px 20px;
+  box-shadow: 0 2px 4px #333;
+  margin: 30px;
+  margin-top: 80px;
 }
+
+.form-title h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.main-signup .form-control {
+  border-radius: 0;
+}
+
+.main-signup .form-control:focus {
+  background-color: #fff;
+  border-color: #86b7fe;
+  outline: 0;
+  box-shadow: none;
+}
+
+.main-signup .form-required {
+  position: relative;
+}
+
+.main-signup .form-required::after {
+  position: absolute;
+  content: "*";
+  color: red;
+  right: 8px;
+  top: 20%;
+  font-size: 22px;
+}
+
+.main-signup .form-group p {
+  position: absolute;
+  color: red;
+  top: 12%;
+  right: 10px;
+}
+
+.already-regi a {
+  color: #212529;
+  font-size: 18px;
+  text-decoration: none;
+  opacity: 0.5;
+}
+
+.signup-btn {
+  margin-top: 30px;
+}
+
+.signup-btn button {
+  background-color: rgb(3, 3, 97);
+  font-size: 16px;
+  color: #fff;
+  border-radius: 0;
+}
+
+.signup-btn button:hover {
+  color: #fff;
+}
+
+.form-show-data ul li {
+  display: inline-block;
+  margin-left: 42px;
+  font-weight: 500;
+}
+
+.form-show-data ul span {
+  margin-left: 5px;
+  font-weight: 400;
+}
+
+/* ======signup ends ====== */
