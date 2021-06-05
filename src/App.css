@@ -18,6 +18,26 @@ li {
 
 /* ===common css ends ==== */
 
+/* home */
+
+.main-page {
+  background: linear-gradient(to right, #f4f4f4 50%, #f7f7f7 50%);
+  text-align: center;
+  padding: 260px 0;
+}
+
+.main-content h4 {
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.main-content p {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* home ends */
+
 /* ======signup/signin ====== */
 
 .inner-signup {
@@ -104,3 +124,21 @@ li {
 }
 
 /* ======signup ends ====== */
+
+/* ===for delete the form=========== */
+
+.main-delete {
+  text-align: center;
+  margin: 50px auto;
+  width: 50%;
+}
+
+.delete-btn button {
+  background-color: rgb(3, 3, 97);
+  font-size: 16px;
+  color: #fff;
+  border-radius: 0;
+  padding: 10px 20px;
+}
+
+/* ===for delete the form ends=========== */

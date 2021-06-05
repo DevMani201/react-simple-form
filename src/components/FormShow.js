@@ -1,62 +1,15 @@
 import React, { useState } from 'react'
-import Signup from './Signup';
-import validator from 'validator'
 
-const FormShow = () => {
+
+
+const FormShow = ({ HandleData, HandleChangeData }) => {
     const [user, setUser] = useState({
-        fname: "", mname: "", lname: "", email: "", phone: "", address: "", country: "", state: "", zipcode: "", height: "", weight: ""
+        fname: "", mname: "", lname: "", email: "", phone: "", address: "", country: "", state: "", zipcode: "", height: "", weight: "", password:"", cpassword:""
     })
 
-    const [userValid, setUserValid] = useState({})
-
-    const eventHandler = (e) => {
-        const value = e.target.value
-        const name = e.target.name
-        setUser((preValue) => {
-            return {
-                ...preValue,
-                [name]: value
-            }
-        })
-    }
-    const postData = (e) => {
-
-        e.preventDefault()
-
-        try {
-            const { fname, mname, lname, email, phone, address, country, state, zipcode, height, weight } = user;
-            if (!fname, !lname || !email || !phone || !address || !country || !state || !zipcode || !height || !weight) {
-
-                window.alert("plz fill all the field");
-                console.log("plz fill all the field");
-
-            } else if (!validator.isEmail(email)) {
-                window.alert("Invalid Email, info@vitasoft.com");
-                console.log("Invalid Email");
-            } else if (phone.length != 10 || !/[6-9][0-9]{9}/.test(phone)) {
-                window.alert("please enter valid Phone Number");
-                console.log("please enter valid Phone Number");
-            } else if (zipcode.length != 6) {
-                window.alert("please enter valid zipcode");
-                console.log("please enter valid zipcode");
-            } else {
-                setUserValid({
-                    fname, mname, lname, email, phone, address, country, state, zipcode, height, weight
-                })
-                window.alert("Save SuccessFully");
-                console.log("Save SuccessFully");
-            }
-
-        } catch (e) {
-            console.log(e);
-        }
-
-
-    }
 
     return (
         <>
-            <Signup HandleData={postData} HandleChangeData={eventHandler} />
             <div className="inner-signup">
                 <div className="main-signup">
                     <div className="container">
@@ -66,36 +19,103 @@ const FormShow = () => {
                                     <div className="sign-up-form">
 
                                         <div className="form-title">
-                                            <h2>Data Show </h2>
+                                            <h2>Sign up</h2>
 
                                         </div>
-                                        <div className="form-show-data">
-                                            <p><b>First Name:</b>  {userValid.fname}</p>
-                                            <p><b>Middle Name:</b>  {userValid.mname}</p>
-                                            <p><b>Last Name:</b>  {userValid.lname}</p>
-                                            <p><b>Address:</b>
-                                                {userValid.address}
-                                                <ul>
-                                                    <li>Country:<span> {userValid.country}</span></li>
-                                                    <li>State:<span> {userValid.state}</span></li>
-                                                    <li>zipcode: <span> {userValid.zipcode}</span></li>
-                                                </ul>
+                                        <form>
+                                            <div className="form-group form-required mb-3">
 
-                                            </p>
-                                            <p><b>Email:</b>  {userValid.email}</p>
-                                            <p><b>Phone Number:</b>  {userValid.phone}</p>
-                                            <p><b>Height:</b>  {userValid.height}</p>
-                                            <p><b>Weight:</b>  {userValid.weight}</p>
+                                                <input type="text" className="form-control" name="fname" placeholder="First Name" onChange={HandleChangeData} required />
 
-                                        </div>
+
+                                            </div>
+                                            <div className="form-group mb-3">
+
+                                                <input type="text" className="form-control" name="mname" placeholder="Middle Name" onChange={HandleChangeData} />
+
+                                            </div>
+                                            <div className="form-group form-required mb-3">
+
+                                                <input type="text" className="form-control" name="lname" placeholder="Last Name" onChange={HandleChangeData} required />
+
+                                            </div>
+
+
+                                            <div className="form-group form-required mb-3">
+
+                                                <input type="email" className="form-control" name="email" placeholder="Email Address" onChange={HandleChangeData} required />
+                                            </div>
+                                            <div className="form-group form-required mb-3">
+
+                                                <input type="number" className="form-control" name="phone" placeholder="Phone Number" onChange={HandleChangeData} required />
+                                            </div>
+                                            <div className="form-group form-required mb-3">
+
+                                                <input type="text" className="form-control" name="address" placeholder="Address" onChange={HandleChangeData} required />
+                                            </div>
+                                            <div className="row">
+                                                <div className="col-md-4">
+                                                    <div className="form-group form-required mb-3">
+
+                                                        <input type="text" className="form-control" name="country" placeholder="Country" onChange={HandleChangeData} required />
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-4">
+
+                                                    <div className="form-group form-required mb-3">
+
+                                                        <input type="text" className="form-control" name="state" placeholder="State" onChange={HandleChangeData} required />
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-4">
+                                                    <div className="form-group form-required mb-3">
+
+                                                        <input type="text" className="form-control" name="zipcode" placeholder="Zip Code" onChange={HandleChangeData} required />
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                            <div className="row">
+                                                <div className="col-md-6">
+                                                    <div className="form-group form-required mb-3">
+
+                                                        <input type="text" className="form-control" name="height" placeholder="Height in Ft/inches" onChange={HandleChangeData} required />
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-6">
+
+                                                    <div className="form-group form-required mb-3">
+
+                                                        <input type="text" className="form-control" name="weight" placeholder="Weight in Kg" onChange={HandleChangeData} required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="form-group form-required mb-3">
+
+                                                <input type="password" className="form-control" name="password" placeholder="Password" onChange={HandleChangeData} required />
+                                            </div>
+                                            <div className="form-group form-required mb-3">
+
+                                                <input type="password" className="form-control" name="cpassword" placeholder="Confirm Password" onChange={HandleChangeData} required />
+                                            </div>
+
+
+
+                                            <div className="signup-btn">
+                                                <button type="submit" className="btn" name="save" value="save" onClick={HandleData}>SAVE</button>
+                                            </div>
+
+                                        </form>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
-
         </>
     )
 }
